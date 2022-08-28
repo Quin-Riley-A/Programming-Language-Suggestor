@@ -1,17 +1,3 @@
-//UI Logic
-//Listens for form submission
-function formSelection() {
-  let form = document.querySelector("form");
-  form.addEventListener("submit", formEval);
-}
-//UI Logic
-function hidePreviousResults() {
-  document.querySelector("div#python").setAttribute('class', 'hidden');
-  document.querySelector("div#cPlusPlus").setAttribute('class', 'hidden');
-  document.querySelector("div#javascript").setAttribute('class', 'hidden');
-  document.querySelector("div#ruby").setAttribute('class', 'hidden');
-}
-
 //Business Logic
 //Parses each radio option to the score it will add to total
 function answerEval(answerValue) {
@@ -27,17 +13,14 @@ function answerEval(answerValue) {
     default:
       return "error";
   }
-  //will take values from form array and return respective affinity score for each language
-  //languages will be arbitrarily weighted for how intuitive or easy I've found their syntax
 }
 
-//Business Logic
 //Iterates through question responses and totals scores for each language
 function scoreTally(startScore, answerArray) {
   for (let i = 0; i<5; i++){
     for (let n = 0; n<4; n++){
       if (answerEval(answerArray.at(i)).at(n) === "error") {
-        window.alert("The survey has encountered an error, please send your current quiz inputs to the developer for further analysis. \nThank you for your patience!");
+        errorMessage();
       } else{
       startScore[n] = parseFloat(startScore.at(n)) + parseFloat(answerEval(answerArray.at(i)).at(n));
       }
@@ -46,9 +29,22 @@ function scoreTally(startScore, answerArray) {
   return startScore;
 }
 
-//Business Logic
+//UI Logic
+//Listens for form submission
+function formSelection() {
+  const form = document.querySelector("form");
+  form.addEventListener("submit", formEval);
+}
+
+function hidePreviousResults() {
+  document.querySelector("div#python").setAttribute('class', 'hidden');
+  document.querySelector("div#cPlusPlus").setAttribute('class', 'hidden');
+  document.querySelector("div#javascript").setAttribute('class', 'hidden');
+  document.querySelector("div#ruby").setAttribute('class', 'hidden');
+}
+
 function results(tally) {
-  let max = Math.max(tally[0], tally[1], tally[2], tally[3]);
+  const max = Math.max(tally[0], tally[1], tally[2], tally[3]);
   switch (tally.indexOf(max)) {
     case 0:
       console.log("Results 1");
@@ -67,11 +63,10 @@ function results(tally) {
       document.querySelector("div#ruby").removeAttribute("class");
       break;
     default:
-      console.log("An error with the program has been encountered, please send notes on your form results to the developer");
+      errorMessage();
   }
 }
 
-//UI Logic
 function formEval(event) {
   event.preventDefault();
   hidePreviousResults();
@@ -89,4 +84,8 @@ function formEval(event) {
   results(scores);
 }
 
-window.addEventListener("load", formSelection)
+function errorMessage() {
+  window.alert("The survey has encountered an error, please send your current quiz inputs to the developer for further analysis. \nThank you for your patience!");
+}
+
+window.addEventListener("load", formSelection);
