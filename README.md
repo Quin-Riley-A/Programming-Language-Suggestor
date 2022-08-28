@@ -61,8 +61,8 @@ Additionally, included image does not scale-down to fit to smaller screen sizes 
 ### License Information {#license}
 *Quin Asselin, 2022. Available for distribution, modification, inspection, and application under [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)*
 
-### Photo Licensure {#photo}
-Photos and sourcing are as follows:
+#### Photo Licensure {#photo}
+Photo sourcing and respective licenses are as follows:
 - [The Python Logo Device](https://www.python.org/community/logos/)
   * Used under clause of indicating suitability of Python.
 - [C++](https://isocpp.org/home/terms-of-use)

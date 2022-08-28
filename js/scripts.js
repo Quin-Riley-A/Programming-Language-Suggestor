@@ -56,11 +56,11 @@ function results(tally) {
       break;
     case 1:
       console.log("Results 2");
-      document.querySelector("div#cPlusPlus").removeAttribute("class");
+      document.querySelector("div#javascript").removeAttribute("class");
       break;
     case 2:
       console.log("Results 3");
-      document.querySelector("div#javascript").removeAttribute("class");
+      document.querySelector("div#cPlusPlus").removeAttribute("class");
       break;
     case 3:
       console.log("Results 4");
