@@ -38,7 +38,6 @@ function formEval(event) {
   let selectionArray = [radioSelection1, radioSelection2, radioSelection3, radioSelection4, radioSelection5];
   let scores = [0.0, 0.0, 0.0, 0.0];
   for (let i = 0; i<5; i++){
-
     console.log("array for question " + i+1);
     console.log(answerEval(selectionArray[i])[3]);
     console.log(typeof answerEval(selectionArray[i])[3]);
