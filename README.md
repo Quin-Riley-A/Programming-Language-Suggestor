@@ -24,7 +24,7 @@ This project was hand-built in tandem with a programming class taught by Epicodu
 ***
 
 ### Github Pages: {#pages}
-This project can be accessed on Github Pages via this [link](new link)
+This project can be accessed on Github Pages via this [link](https://quin-riley-a.github.io/Programming-Language-Suggestor)
 
 ***
 
