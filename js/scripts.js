@@ -41,6 +41,25 @@ function scoreTally(startScore, answerArray) {
   return startScore;
 }
 
+  //Business Logic
+  function results(tally) {
+    let max = Math.max(tally[0], tally[1], tally[2], tally[3]);
+    switch (tally.indexOf(max)) {
+      case 0:
+        console.log("Results 1");
+        break;
+      case 1:
+        console.log("Results 2");
+        break;
+      case 2:
+        console.log("Results 3");
+        break;
+      case 4:
+        console.log("Results 4");
+        break;
+      }
+  }
+
 //UI Logic
 function formEval(event) {
   event.preventDefault();
@@ -52,8 +71,10 @@ function formEval(event) {
   const radioSelection5 = parseInt((document.querySelector("input[name='radioQuestion5']:checked").value).charAt(8));
   let selectionArray = [radioSelection1, radioSelection2, radioSelection3, radioSelection4, radioSelection5];
   let scores = [0.0, 0.0, 0.0, 0.0];
-  scores = scoreTally(scores, selectionArray)
-  console.log("final scores: " + scores)
+  scores = scoreTally(scores, selectionArray);
+  console.log (typeof scores[0]);
+  console.log("final scores: " + scores);
+  results(scores);
 }
 
 window.addEventListener("load", formSelection)
