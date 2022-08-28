@@ -16,7 +16,7 @@ Quin Asselin, 2022
 
 *** 
 
-### Repository Description: (#description)
+### Repository Description: {#description}
 This application asks the user a series of questions to suggest potentially suitable coding languages for new developers who are looking for suggestions.
 
 This project was hand-built in tandem with a programming class taught by Epicodus. It contains use of JavaScript, HTML, and formatting from both custom CSS and Bootstrap. 
