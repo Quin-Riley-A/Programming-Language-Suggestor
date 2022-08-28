@@ -56,7 +56,7 @@ function results(tally) {
       console.log("Results 3");
       document.querySelector("div#javascript").removeAttribute("class");
       break;
-    case 4:
+    case 3:
       console.log("Results 4");
       document.querySelector("div#ruby").removeAttribute("class");
       break;
