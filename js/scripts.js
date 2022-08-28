@@ -24,6 +24,8 @@ function answerEval(answerValue) {
       return [0, 0, 1.05, 0];
     case 4:
       return [0, 0, 0, 1];
+    default:
+      return "error";
   }
   //will take values from form array and return respective affinity score for each language
   //languages will be arbitrarily weighted for how intuitive or easy I've found their syntax
@@ -34,7 +36,11 @@ function answerEval(answerValue) {
 function scoreTally(startScore, answerArray) {
   for (let i = 0; i<5; i++){
     for (let n = 0; n<4; n++){
+      if (answerEval(answerArray.at(i)).at(n) === "error") {
+        window.alert("The survey has encountered an error, please send your current quiz inputs to the developer for further analysis. \nThank you for your patience!");
+      } else{
       startScore[n] = parseFloat(startScore.at(n)) + parseFloat(answerEval(answerArray.at(i)).at(n));
+      }
     }
   }
   return startScore;
@@ -60,6 +66,8 @@ function results(tally) {
       console.log("Results 4");
       document.querySelector("div#ruby").removeAttribute("class");
       break;
+    default:
+      console.log("An error with the program has been encountered, please send notes on your form results to the developer");
   }
 }
 
