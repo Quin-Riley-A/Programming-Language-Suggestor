@@ -28,3 +28,11 @@ img {
   background-color: rgb(155, 192, 224);
   border: 2px rgb(224,238,250);
 }
+
+h5 {
+  font-style: italic;
+}
+
+h6 {
+  font-weight: bold;
+}
