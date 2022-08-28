@@ -1,25 +1,28 @@
 //UI Logic
+//Listens for form submission
 function formSelection() {
   let form = document.querySelector("form");
   form.addEventListener("submit", formEval);
 }
+//UI Logic
+function hidePreviousResults() {
+  document.querySelector("div#python").setAttribute('class', 'hidden');
+  document.querySelector("div#cPlusPlus").setAttribute('class', 'hidden');
+  document.querySelector("div#javascript").setAttribute('class', 'hidden');
+  document.querySelector("div#ruby").setAttribute('class', 'hidden');
+}
 
 //Business Logic
+//Parses each radio option to the score it will add to total
 function answerEval(answerValue) {
-//  console.log("enter function");
-//  console.log(answerValue);
   switch (answerValue) {
     case 1:
-//      console.log("1");
       return [1.15, 0, 0, 0];
     case 2:
-//      console.log("2");
       return [0, 1.1, 0, 0];
     case 3:
-//      console.log("3");
       return [0, 0, 1.05, 0];
     case 4:
-//      console.log("4");
       return [0, 0, 0, 1];
   }
   //will take values from form array and return respective affinity score for each language
@@ -27,42 +30,43 @@ function answerEval(answerValue) {
 }
 
 //Business Logic
+//Iterates through question responses and totals scores for each language
 function scoreTally(startScore, answerArray) {
   for (let i = 0; i<5; i++){
     for (let n = 0; n<4; n++){
       startScore[n] = parseFloat(startScore.at(n)) + parseFloat(answerEval(answerArray.at(i)).at(n));
-      console.log("typeof scores.at(n): " + typeof startScore.at(n) + " space " + parseFloat(startScore.at(n)));
-      console.log("scores n: " + startScore.at(n));
-      console.log(startScore);
     }
-    console.log("Here is scores: ");
-    console.log(startScore);
   }
   return startScore;
 }
 
-  //Business Logic
-  function results(tally) {
-    let max = Math.max(tally[0], tally[1], tally[2], tally[3]);
-    switch (tally.indexOf(max)) {
-      case 0:
-        console.log("Results 1");
-        break;
-      case 1:
-        console.log("Results 2");
-        break;
-      case 2:
-        console.log("Results 3");
-        break;
-      case 4:
-        console.log("Results 4");
-        break;
-      }
+//Business Logic
+function results(tally) {
+  let max = Math.max(tally[0], tally[1], tally[2], tally[3]);
+  switch (tally.indexOf(max)) {
+    case 0:
+      console.log("Results 1");
+      document.querySelector("div#python").removeAttribute("class");
+      break;
+    case 1:
+      console.log("Results 2");
+      document.querySelector("div#cPlusPlus").removeAttribute("class");
+      break;
+    case 2:
+      console.log("Results 3");
+      document.querySelector("div#javascript").removeAttribute("class");
+      break;
+    case 4:
+      console.log("Results 4");
+      document.querySelector("div#ruby").removeAttribute("class");
+      break;
   }
+}
 
 //UI Logic
 function formEval(event) {
   event.preventDefault();
+  hidePreviousResults();
   let form = document.querySelector("form");
   const radioSelection1 = parseInt((document.querySelector("input[name='radioQuestion1']:checked").value).charAt(8));
   const radioSelection2 = parseInt((document.querySelector("input[name='radioQuestion2']:checked").value).charAt(8));
