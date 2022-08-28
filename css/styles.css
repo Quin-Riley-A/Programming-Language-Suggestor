@@ -1,5 +1,8 @@
-.hidden {
-  display: none;
+body {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(224, 238, 250);
+  float: left;
 }
 
 .jumbotron-custom {
@@ -10,18 +13,16 @@
   float: none;
 }
 
-body {
-  text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(224, 238, 250);
-  float: left;
+h5 {
+  font-style: italic;
 }
 
-img {
-  padding: 4px;
-  border: 4px ridge rgb(173, 200, 224); 
-  align-items: center;
-  background-color: rgb(224, 238, 250);
+h6 {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
 
 .blue-theme {
@@ -29,10 +30,9 @@ img {
   border: 2px rgb(224,238,250);
 }
 
-h5 {
-  font-style: italic;
-}
-
-h6 {
-  font-weight: bold;
+img {
+  padding: 4px;
+  border: 4px ridge rgb(173, 200, 224); 
+  align-items: center;
+  background-color: rgb(224, 238, 250);
 }
